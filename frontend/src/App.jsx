@@ -16,8 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Frontend Connected to Backend</h1>
-      <button onClick={fetchMessage}>Fetch Message from Backend</button>
+      <h1>Triple B</h1>
+      <button onClick={fetchMessage}>Click to eliminate bias</button>
       {message && <p>Message from backend: {message}</p>}
     </div>
   );
