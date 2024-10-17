@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import React from "react";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -16,8 +17,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Triple B</h1>
-      <button onClick={fetchMessage}>Click to eliminate bias</button>
+      <h1>Frontend Connected to Backend</h1>
+      <button onClick={fetchMessage}>Fetch Message from Backend</button>
       {message && <p>Message from backend: {message}</p>}
     </div>
   );
