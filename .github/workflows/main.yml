@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]  # Ensure npm compatibility
-        python-version: [3.9]  # Use the appropriate Python version
+        node-version: [16.x] 
+        python-version: [3.9]  
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest  # Install PyTest for backend testing
+          pip install pytest  
           pip install -r requirements.txt
 
       - name: Run backend tests
@@ -52,7 +52,7 @@ jobs:
           npm install
 
       - name: Run frontend tests
-        run: npm run test  # Use Jest for frontend tests
+        run: npm run test  
 
   build:
     needs: [backend-tests, frontend-tests]
@@ -71,26 +71,26 @@ jobs:
       - name: Package backend
         run: |
           cd backend
-          python manage.py collectstatic --noinput  # Static file collection for Django
+          python manage.py collectstatic --noinput  
           # Add other build steps if necessary
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to AWS
-        uses: aws-actions/configure-aws-credentials@v3
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1  # Update to your region
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to AWS
+  #       uses: aws-actions/configure-aws-credentials@v3
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         aws-region: us-east-1  # Update to your region
 
-      - name: Deploy backend to AWS Elastic Beanstalk or EC2
-        run: |
-          # Add deployment scripts to deploy the Django backend
-          # Example for Elastic Beanstalk:
-          eb deploy --staged
+  #     - name: Deploy backend to AWS Elastic Beanstalk or EC2
+  #       run: |
+  #         # Add deployment scripts to deploy the Django backend
+  #         # Example for Elastic Beanstalk:
+  #         eb deploy --staged
 
-      - name: Deploy frontend to S3 (if applicable)
-        run: |
-          aws s3 sync frontend/build s3://your-s3-bucket-name --delete
+  #     - name: Deploy frontend to S3 (if applicable)
+  #       run: |
+  #         aws s3 sync frontend/build s3://your-s3-bucket-name --delete
