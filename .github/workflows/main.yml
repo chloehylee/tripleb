@@ -32,15 +32,15 @@ jobs:
           python-version: 3.9
 
       - name: Install Python dependencies
+        working-directory: backend
         run: |
-          cd backend
           python -m pip install --upgrade pip
           pip install pytest  
           pip install -r requirements.txt
 
       - name: Run backend tests
+        working-directory: backend
         run: |
-          cd backend
           pytest tests/
 
   frontend-tests:
@@ -49,18 +49,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
       - name: Install npm dependencies
+        working-directory: frontend
         run: |
-          cd .github/workflows/frontend
           npm install
 
       - name: Run frontend tests
+        working-directory: frontend
         run: npm run test  
 
   build:
@@ -73,13 +74,13 @@ jobs:
           node-version: 16.x
 
       - name: Build frontend
+        working-directory: frontend
         run: |
-          cd frontend
           npm run dev  
 
       - name: Package backend
+        working-directory: backend
         run: |
-          cd backend
           python manage.py collectstatic --noinput  
 
   # deploy:
