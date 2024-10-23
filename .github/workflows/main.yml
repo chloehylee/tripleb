@@ -64,8 +64,8 @@ jobs:
         working-directory: frontend
         run: npm run test  
 
-  build:
-    needs: [backend-tests, frontend-tests]
+  build-frontend:
+    needs: [frontend-tests]
     runs-on: ubuntu-latest
     steps:
       - name: Set up Node.js
@@ -76,8 +76,12 @@ jobs:
       - name: Build frontend
         working-directory: frontend
         run: |
-          npm run dev  
+          npm run build  
 
+  build-backend:
+    needs: [backend-tests]
+    runs-on: ubuntu-latest
+    steps:
       - name: Package backend
         working-directory: backend
         run: |
