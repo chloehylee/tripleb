@@ -85,28 +85,28 @@ jobs:
         working-directory: frontend
         run: npm run build  
 
-  build-backend:
-    needs: [backend-tests]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+  # build-backend:
+  #   needs: [backend-tests]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         python-version: 3.9
 
-      - name: Install Python dependencies
-        working-directory: backend
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+  #     - name: Install Python dependencies
+  #       working-directory: backend
+  #       run: |
+  #         python -m pip install --upgrade pip
+  #         pip install -r requirements.txt
 
-      - name: Run backend build
-        working-directory: backend
-        run: |
-          python manage.py collectstatic
+  #     - name: Run backend build
+  #       working-directory: backend
+  #       run: |
+  #         python manage.py collectstatic
 
   # deploy:
   #   needs: build
