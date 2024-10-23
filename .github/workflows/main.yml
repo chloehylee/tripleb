@@ -74,6 +74,7 @@ jobs:
           node-version: 16.x
 
       - name: Build frontend
+        working-directory: frontend
         run: |
           npm run dev  
 
