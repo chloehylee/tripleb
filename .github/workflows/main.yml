@@ -68,15 +68,22 @@ jobs:
     needs: [frontend-tests]
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
-      - name: Build frontend
+      - name: Install npm dependencies
         working-directory: frontend
         run: |
-          npm run build  
+          npm install
+
+      - name: Run frontend build
+        working-directory: frontend
+        run: npm run build  
 
   build-backend:
     needs: [backend-tests]
