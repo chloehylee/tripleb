@@ -1,7 +1,10 @@
 # ByeByeBias
 
 **Created by:** Leilia Ho, Michelle Huang, Akshata Kulkarni, Chloe Lee, Dhairya Thakkar, Helen Zhao
-Thank you to the University of Toronto's Focus in Technology Leadership teaching assistants and professors! 
+
+Thank you to the University of Toronto's Focus in Technology Leadership teaching assistants and professors!
+
+Frontend hosting: https://main.d1wqrmdy4z9wpu.amplifyapp.com/
 
 ##  🌎 Our Mission   
 ByeByeBias strives to spot and recommend fixes to reduce bias in AI fraud detection, building trust in financial services for everyone. We believe everyone deserves fair access to financial tools, especially underserved communities. 
@@ -17,7 +20,7 @@ We then
 - **Backend:** Django 
 - **Frontend:** React, nivo
 - **Testing:** Jest
-- **Hosting:** Heroku, AWS Amplify
+- **Hosting:** AWS Beanstalk, AWS Amplify
 
 ## 📄 License 
-This project is licensed under the MIT License
+This project is licensed under the MIT License. 
