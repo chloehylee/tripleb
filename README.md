@@ -1,6 +1,6 @@
 # ByeByeBias
 
-**Created by:** Leilia Ho, Michelle Huang, Akshata Kulkarni, Chloe Lee, Dhairya Thakkar
+**Created by:** Leilia Ho, Michelle Huang, Akshata Kulkarni, Chloe Lee, Dhairya Thakkar, Helen Zhao
 Thank you to the University of Toronto's Focus in Technology Leadership teaching assistants and professors! 
 
 ##  🌎 Our Mission   
